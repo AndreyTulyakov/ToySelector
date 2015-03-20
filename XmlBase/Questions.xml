@@ -1,0 +1,37 @@
+<!DOCTYPE ToysQuestions>
+
+<Root>
+ <Questions>
+
+  <question id="1" priority="0">
+   <text>Укажите ценовой диапазон:</text>
+   <property>Цена</property>
+  </question>
+
+  <question id="2" priority="1">
+   <text>Какого цвета игрушку вы бы хотели?</text>
+   <property>Цвет</property>
+  </question>
+
+  <question id="3" priority="1">
+   <text>Выберите возрастную группу:</text>
+   <property>Возрастная категория</property>
+  </question>
+
+  <question id="4" priority="4">
+   <text>Игрушка является радиоуправляемой?</text>
+   <property>Радиоуправляемость</property>
+  </question>
+
+  <question id="5" priority="3" next_question_id="4">
+   <text>Игрушка является электронной?</text>
+   <property>Электронность</property>
+  </question>
+
+  <question id="6" priority="2">
+   <text>Вы желает получить практичную игрушку?</text>
+   <property>Практичность</property>
+  </question>
+
+ </Questions>
+</Root>

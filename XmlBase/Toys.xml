@@ -1,0 +1,29 @@
+<!DOCTYPE ToysBase>
+<Root>
+ <Toys>
+
+  <toy id="1" name="Плюшевый медведь">
+   <property caption="Цвет" value="черный"/>
+   <property caption="Возрастная категория" value="младшая"/>
+   <property caption="Цена" value="600"/>
+   <property caption="Электронность" value="0"/>
+   <property caption="Практичность" value="0"/>
+  </toy>
+
+  <toy id="2" name="Робот Мегатрон">
+   <property caption="Цвет" value="синий"/>
+   <property caption="Возрастная категория" value="средняя старшая"/>
+   <property caption="Цена" value="1200"/>
+   <property caption="Электронность" value="1"/>
+   <property caption="Радиоуправляемость" value="1"/>
+  </toy>
+
+  <toy id="3" name="Набор детской посуды Апокалипсишка">
+   <property caption="Цвет" value="белый"/>
+   <property caption="Возрастная категория" value="младшая"/>
+   <property caption="Цена" value="220"/>
+   <property caption="Практичность" value="1"/>
+  </toy>
+
+ </Toys>
+</Root>

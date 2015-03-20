@@ -1,0 +1,40 @@
+<!DOCTYPE ToysProp>
+<Root>
+ <Properties>
+
+  <property caption="Цвет" argtype="word">
+   <value text="черный"/>
+   <value text="белый"/>
+   <value text="синий"/>
+   <value text="красный"/>
+   <value text="зеленый"/>
+   <value text="розовый"/>
+  </property>
+
+  <property caption="Размер" argtype="word">
+   <value text="маленький"/>
+   <value text="средний"/>
+   <value text="большой"/>
+  </property>
+
+  <property caption="Цена" argtype="range">
+   <value min="0" max="100000"/>
+  </property>
+
+  <property caption="Возрастная категория" argtype="multiwords">
+   <value text="младшая"/>
+   <value text="средняя"/>
+   <value text="старшая"/>
+  </property>
+
+  <property caption="Электронность" argtype="bool">	
+  </property> 
+
+  <property caption="Радиоуправляемость" argtype="bool">
+  </property>
+
+  <property caption="Практичность" argtype="bool">
+  </property> 
+
+ </Properties>
+</Root>
