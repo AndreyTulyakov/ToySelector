@@ -1,0 +1,9 @@
+<!DOCTYPE ToySelectorСonsequence>
+
+<Root>
+ <Consequences>
+
+  <consequence if_arg="Радиоуправляемость" if_value="1" then_arg="Электронность" then_value="1"/>
+
+ </Consequences>
+</Root>
