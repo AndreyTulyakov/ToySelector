@@ -15,7 +15,8 @@ from Widgets.ui_MainWindow import  Ui_MainWindow
 
 
 class MainWindow(QDialog):
-    def __init__(self, properties_list: list, toys_list: list, questions_list: list, parent=None):
+    def __init__(self,
+                 properties_list: list, toys_list: list, questions_list: list, consequences_list:list, parent=None):
         super(MainWindow, self).__init__(parent)
 
         self.ui = Ui_MainWindow
@@ -24,6 +25,7 @@ class MainWindow(QDialog):
         self.toys_list = toys_list
         self.properties_list = properties_list
         self.questions_list = questions_list
+        self.consequences_list = consequences_list
 
         self.answers_list = list()
         self.startSelectorButton.clicked.connect(self.on_selector_button_click);

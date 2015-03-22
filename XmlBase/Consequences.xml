@@ -1,0 +1,11 @@
+<!DOCTYPE ToySelectorСonsequence>
+
+<Root>
+ <Consequences>
+
+  <consequence if="Радиоуправляемость:1 and Цвет:синий" then="Электронность:1"/>
+  <consequence if="Электронность:1" then_goto_question_id="1"/>
+
+
+ </Consequences>
+</Root>

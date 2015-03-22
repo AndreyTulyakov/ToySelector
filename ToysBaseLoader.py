@@ -1,3 +1,5 @@
+from ConsequencesItem import ConsequencesItem
+
 __author__ = 'andrew'
 
 from xml.dom import minidom
@@ -7,7 +9,7 @@ from QuestionItem import QuestionItem
 
 
 def load_toys_properties(properties_base_filename):
-
+    """ @rtype: list of ToyProperty"""
     doc = minidom.parse(properties_base_filename)
     properties = doc.getElementsByTagName("property")
 
@@ -24,7 +26,7 @@ def load_toys_properties(properties_base_filename):
 
 
 def load_toys_items(toy_base_filename, properties_list):
-
+    """ @rtype: list of ToyItem"""
     doc = minidom.parse(toy_base_filename)
     toys_node = doc.getElementsByTagName("toy")
 
@@ -48,7 +50,7 @@ def load_toys_items(toy_base_filename, properties_list):
 
 
 def load_questions(toy_questions_filename):
-
+    """ @rtype: list of QuestionItem"""
     doc = minidom.parse(toy_questions_filename)
     questions_nodes = doc.getElementsByTagName("question")
 
@@ -56,22 +58,42 @@ def load_questions(toy_questions_filename):
 
     for question_node in questions_nodes:
 
-        # Имеется ли необязательный параметр next_question_id
-        next_question = question_node.getAttribute("next_question_id")
-        if (next_question is None) or (next_question == ""):
-            next_question = -1
-        else:
-            next_question = int(next_question)
-
-        # Загружаем в игрушку основные данные
+        # Загружаем в вопрос основные данные
         item = QuestionItem(
             question_node.getAttribute("id"),
             question_node.getAttribute("priority"),
             str(question_node.getElementsByTagName("text")[0].firstChild.nodeValue),
-            str(question_node.getElementsByTagName("property")[0].firstChild.nodeValue),
-            next_question
+            str(question_node.getElementsByTagName("property")[0].firstChild.nodeValue)
         )
 
         questions_list.append(item)
+
+    return questions_list
+
+
+def load_consequences(toy_consequences_filename):
+    """ @rtype: list of ConsequencesItem"""
+    doc = minidom.parse(toy_consequences_filename)
+    questions_nodes = doc.getElementsByTagName("consequence")
+
+    questions_list = list()
+
+    for question_node in questions_nodes:
+
+        # Это секвенция перехода к др вопросу?
+        next_question = question_node.getAttribute("then_goto_question_id")
+        if (next_question is None) or (next_question == ""):
+
+            item = ConsequencesItem(
+                str(question_node.getAttribute("if")),
+                str(question_node.getAttribute("then")),
+                False
+            )
+            questions_list.append(item)
+
+        else:
+            next_id = int(question_node.getAttribute("then_goto_question_id"))
+            item = ConsequencesItem(str(question_node.getAttribute("if")), next_id, True)
+            questions_list.append(item)
 
     return questions_list

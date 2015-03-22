@@ -20,7 +20,6 @@ class QuestionSelector:
 
     def get_next_question(self):
         """ @rtype: QuestionItem"""
-        next_id = None
 
         if self.current_question is not None:
             self.priority = int(self.current_question.priority)
@@ -28,18 +27,6 @@ class QuestionSelector:
 
             # Удаляем из списка текущий вопрос
             self.questions_list.remove(self.current_question)
-        else:
-            next_id = -1
-
-        # Если текущий вопрос имел переход на другой - переходим
-        if next_id is not None and next_id >= 0:
-            question = self._get_question_with_id(next_id)
-            if question is not None:
-                self.current_question = question
-                self.priority = int(question.priority)
-                return self.current_question
-            else:
-                print("Ошибка переход к несуществующему вопросу на ID[%d]" % next_id)
 
         # Если нет перехода, ищем вопросы с текущим приоритетом и выбираем
         while self.is_end() == False:
