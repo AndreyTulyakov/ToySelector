@@ -2,7 +2,7 @@
 <Root>
  <Properties>
 
-  <property caption="Цвет" argtype="word">
+  <property caption="Цвет" argtype="multiwords">
    <value text="черный"/>
    <value text="белый"/>
    <value text="синий"/>
@@ -10,6 +10,27 @@
    <value text="зеленый"/>
    <value text="розовый"/>
   </property>
+
+  <property caption="Тип игрушки" argtype="word">
+   <value text="настольная"/>
+   <value text="электронная"/>
+   <value text="реальная"/>
+   <value text="видеоигра"/>
+  </property>
+
+  <property caption="Тип электронной игрушки" argtype="multiwords">
+   <value text="Роботы"/>
+   <value text="Машинки"/>
+   <value text="Корабли"/>
+   <value text="Военная техника"/>
+  </property> 
+
+  <property caption="Жанр видеоигры" argtype="multiwords">
+   <value text="аркада"/>
+   <value text="стрелялка"/>
+   <value text="симулятор"/>
+   <value text="детская"/>
+  </property>  
 
   <property caption="Размер" argtype="word">
    <value text="маленький"/>

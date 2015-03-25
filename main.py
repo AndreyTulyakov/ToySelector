@@ -29,24 +29,10 @@ def main():
     print('Загрузка вопросов...')
     questions_list = ToysBaseLoader.load_questions(toy_questions_filename)
 
-    print('Загрузка условных секвенций...')
+    print('Загрузка секвенций...')
     consequences_list = ToysBaseLoader.load_consequences(toy_consequences_filename)
 
-    for cons in consequences_list:
-        print("if:")
-        for uslo in cons.if_properties:
-            print("\t%s:%s"%(uslo.name, uslo.value))
-
-        print("then:")
-        if cons.is_goto:
-            print("\tnext ID:%d"%cons.next_question_id)
-        else:
-            for uslo in cons.then_properties:
-                print("\t%s:%s"%(uslo.name, uslo.value))
-
-    #for prop in properties_list:
-    #    print("Свойство:%s тип:%s" % (prop.name, prop.value_type))
-
+    print('Запуск приложения...')
     app = QApplication(sys.argv)
     start_dialog = MainWindow(properties_list, toys_list, questions_list, consequences_list)
     start_dialog.show()

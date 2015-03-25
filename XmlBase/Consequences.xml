@@ -3,9 +3,10 @@
 <Root>
  <Consequences>
 
-  <consequence if="Радиоуправляемость:1 and Цвет:синий" then="Электронность:1"/>
-  <consequence if="Электронность:1" then_goto_question_id="1"/>
+  <consequence if="Радиоуправляемость:1" then="Цвет:синий"/>
 
+  <consequence if="Тип игрушки:видеоигра" then_goto_question_id="3"/>
+  <consequence if="Тип игрушки:электронная" then_goto_question_id="4"/>
 
  </Consequences>
 </Root>

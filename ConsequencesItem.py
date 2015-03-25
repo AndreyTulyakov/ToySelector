@@ -1,3 +1,4 @@
+
 __author__ = 'andrew'
 
 from Answer import Answer
@@ -30,3 +31,5 @@ class ConsequencesItem:
                 self.then_properties.append(Answer(full_arg[0],full_arg[1]))
         else:
             self.next_question_id = int(thenvalue)
+
+

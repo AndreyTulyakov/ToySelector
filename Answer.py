@@ -45,14 +45,24 @@ class Answer:
                     return False
 
                 if value_type == "multiwords":
-                    splitted = str(self.value).split(" ")
-                    splitted_toy_property = str(property.values[0]).split(" ")
-                    for word in splitted:
-                        for value in splitted_toy_property:
-                            if word == value:
-                                return True
+
+                    for single_prop_value in property.values:
+                        if self._is_contain_multiwords(single_prop_value, self.value):
+                            return True
                     return False
-                    pass
 
         # Если в игрушке нет ограничений с этим свойством то всё хорошо
         return True
+
+    def _is_contain_multiwords(self, first_value: str, second_value: str):
+
+        splitted_first = first_value.split(' ')
+        splitted_second = second_value.split(' ')
+
+        for element_first in splitted_first:
+            if element_first != ' ':
+                for element_second in splitted_second:
+                    if element_second != ' ':
+                        if element_first == element_second:
+                            return True
+        return False

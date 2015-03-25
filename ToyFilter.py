@@ -27,11 +27,15 @@ def filter_toys(toys_list: list, filters_list: list):
 
             # Если у игрушки есть такое свойство
             if not property.is_suitable_for_property(toy):
+                print("\tКоллизия: %s:%s"%(property.name, property.value))
                 toy_validator = False
                 break
+            else:
+                print("\tПо свойству: %s:%s"%(property.name, property.value))
 
         # Если все предикаты удовлетворены то добавляем игрушку в результирующий список
         if toy_validator == True:
+            print("\tОдобрена!")
             result_toys.append(toy)
 
 

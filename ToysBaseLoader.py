@@ -16,10 +16,10 @@ def load_toys_properties(properties_base_filename):
     result_list = list()
 
     for property_node in properties:
-        element = ToyProperty(property_node.getAttribute("caption"), property_node.getAttribute("argtype"))
+        element = ToyProperty(property_node.getAttribute("caption").lower(), property_node.getAttribute("argtype").lower())
         values = property_node.getElementsByTagName("value")
         for value in values:
-            element.add_value(value.getAttribute("text"))
+            element.add_value(value.getAttribute("text").lower())
         result_list.append(element)
 
     return result_list
@@ -39,8 +39,8 @@ def load_toys_items(toy_base_filename, properties_list):
         # Добавим использованные свойства из игрушки
         props_node = toy_node.getElementsByTagName("property")
         for property_node in props_node:
-            prop_name = property_node.getAttribute("caption")
-            value = property_node.getAttribute("value")
+            prop_name = property_node.getAttribute("caption").lower()
+            value = property_node.getAttribute("value").lower()
 
             item.add_property(prop_name, ToyProperty.get_value_type_by_property_name(properties_list, prop_name), value)
 
@@ -63,7 +63,7 @@ def load_questions(toy_questions_filename):
             question_node.getAttribute("id"),
             question_node.getAttribute("priority"),
             str(question_node.getElementsByTagName("text")[0].firstChild.nodeValue),
-            str(question_node.getElementsByTagName("property")[0].firstChild.nodeValue)
+            str(question_node.getElementsByTagName("property")[0].firstChild.nodeValue.lower())
         )
 
         questions_list.append(item)
@@ -85,15 +85,15 @@ def load_consequences(toy_consequences_filename):
         if (next_question is None) or (next_question == ""):
 
             item = ConsequencesItem(
-                str(question_node.getAttribute("if")),
-                str(question_node.getAttribute("then")),
+                str(question_node.getAttribute("if").lower()),
+                str(question_node.getAttribute("then").lower()),
                 False
             )
             questions_list.append(item)
 
         else:
             next_id = int(question_node.getAttribute("then_goto_question_id"))
-            item = ConsequencesItem(str(question_node.getAttribute("if")), next_id, True)
+            item = ConsequencesItem(str(question_node.getAttribute("if").lower()), next_id, True)
             questions_list.append(item)
 
     return questions_list

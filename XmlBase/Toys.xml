@@ -3,26 +3,37 @@
  <Toys>
 
   <toy id="1" name="Плюшевый медведь">
-   <property caption="Цвет" value="черный"/>
-   <property caption="Возрастная категория" value="младшая"/>
-   <property caption="Цена" value="600"/>
-   <property caption="Электронность" value="0"/>
-   <property caption="Практичность" value="0"/>
+    <property caption="Цена" value="800"/>   
+    <property caption="Тип игрушки" value="реальная"/>
   </toy>
 
   <toy id="2" name="Робот Мегатрон">
-   <property caption="Цвет" value="синий"/>
-   <property caption="Возрастная категория" value="средняя старшая"/>
-   <property caption="Цена" value="1200"/>
-   <property caption="Электронность" value="1"/>
-   <property caption="Радиоуправляемость" value="1"/>
+    <property caption="Цена" value="1500"/>   
+    <property caption="Тип игрушки" value="электронная"/>
   </toy>
 
   <toy id="3" name="Набор детской посуды Апокалипсишка">
-   <property caption="Цвет" value="белый"/>
-   <property caption="Возрастная категория" value="младшая"/>
-   <property caption="Цена" value="220"/>
-   <property caption="Практичность" value="1"/>
+    <property caption="Цена" value="400"/>   
+    <property caption="Тип игрушки" value="реальная"/>
+    <property caption="Практичность" value="1"/>
+  </toy>
+
+  <toy id="4" name="Танк Т-34. Модель">
+    <property caption="Цена" value="1800"/>   
+    <property caption="Тип игрушки" value="электронная"/>
+    <property caption="Тип электронной игрушки" value="Военная техника"/>    
+  </toy>
+
+  <toy id="5" name="Тетрис">
+    <property caption="Цена" value="100"/>   
+    <property caption="Тип игрушки" value="видеоигра"/>
+    <property caption="Жанр видеоигры" value="аркада"/>
+  </toy>
+
+  <toy id="6" name="Маленький сапёр">
+    <property caption="Цена" value="150"/>   
+    <property caption="Тип игрушки" value="видеоигра"/>
+    <property caption="Жанр видеоигры" value="детская"/>
   </toy>
 
  </Toys>

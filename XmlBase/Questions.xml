@@ -3,35 +3,50 @@
 <Root>
  <Questions>
 
-  <question id="1" priority="0">
+  <question id="0" priority="0">
    <text>Укажите ценовой диапазон:</text>
    <property>Цена</property>
   </question>
 
-  <question id="2" priority="1">
+  <question id="1" priority="0">
+   <text>Выберите тип игрушки:</text>
+   <property>Тип игрушки</property>
+  </question>
+
+
+
+  <question id="3" priority="1">
+   <text>Выберите жанр видеоигры:</text>
+   <property>Жанр видеоигры</property>
+  </question>
+
+  <question id="4" priority="2">
+   <text>Выберите тип электронной игрушки:</text>
+   <property>Тип электронной игрушки</property>
+  </question>
+
+
+  <question id="10" priority="4">
    <text>Какого цвета игрушку вы бы хотели?</text>
    <property>Цвет</property>
   </question>
 
-  <question id="3" priority="1">
+  <question id="11" priority="4">
    <text>Выберите возрастную группу:</text>
    <property>Возрастная категория</property>
   </question>
 
-  <question id="4" priority="4">
+  <question id="12" priority="4">
    <text>Игрушка является радиоуправляемой?</text>
    <property>Радиоуправляемость</property>
   </question>
 
-  <question id="5" priority="3">
-   <text>Игрушка является электронной?</text>
-   <property>Электронность</property>
-  </question>
-
-  <question id="6" priority="2">
+  <question id="14" priority="4">
    <text>Вы желает получить практичную игрушку?</text>
    <property>Практичность</property>
   </question>
+
+  
 
  </Questions>
 </Root>

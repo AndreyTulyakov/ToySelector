@@ -38,4 +38,9 @@ class QuestionMultiwordsDialog(QDialog):
         # Удалим первый пробел
         if len(result) > 0 and result[0] == ' ':
             result = result[1:]
+
+        print("Multiwords window result:'%s']"%result)
+
+        if len(result) == 0:
+            return None
         return result
