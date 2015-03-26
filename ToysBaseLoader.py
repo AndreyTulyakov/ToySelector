@@ -79,21 +79,11 @@ def load_consequences(toy_consequences_filename):
     questions_list = list()
 
     for question_node in questions_nodes:
-
         # Это секвенция перехода к др вопросу?
-        next_question = question_node.getAttribute("then_goto_question_id")
-        if (next_question is None) or (next_question == ""):
-
-            item = ConsequencesItem(
-                str(question_node.getAttribute("if").lower()),
-                str(question_node.getAttribute("then").lower()),
-                False
-            )
-            questions_list.append(item)
-
-        else:
-            next_id = int(question_node.getAttribute("then_goto_question_id"))
-            item = ConsequencesItem(str(question_node.getAttribute("if").lower()), next_id, True)
-            questions_list.append(item)
+        item = ConsequencesItem(
+            str(question_node.getAttribute("if").lower()),
+            str(question_node.getAttribute("then").lower())
+        )
+        questions_list.append(item)
 
     return questions_list

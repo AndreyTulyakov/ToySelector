@@ -1,9 +1,11 @@
 from ConsequencesChecker import ConsequencesChecker
+from QuestionItem import QuestionItem
 from Widgets.QuestionMultiwordsDialog import QuestionMultiwordsDialog
 from Widgets.ui_MainWindow import Ui_MainWindow
 
 __author__ = 'andrew'
 
+import copy
 from PyQt5.QtWidgets import (QDialog, QPushButton, QVBoxLayout, QMessageBox, QTableWidgetItem)
 from Widgets.QuestionRangeDialog import QuestionRangeDialog
 from Widgets.QuestionWordDialog import QuestionWordDialog
@@ -23,10 +25,12 @@ class MainWindow(QDialog):
         self.ui = Ui_MainWindow
         self.ui.setupUi(self, self)
 
-        self.toys_list = toys_list
-        self.properties_list = properties_list
-        self.questions_list = questions_list
-        self.consequences_list = consequences_list
+        self.ref_properties_list = properties_list
+        self.ref_toys_list = toys_list
+        self.ref_questions_list = questions_list
+        self.ref_consequences_list = consequences_list
+
+
 
         self.answers_list = list()
         self.startSelectorButton.clicked.connect(self.on_selector_button_click);
@@ -37,6 +41,14 @@ class MainWindow(QDialog):
     def on_selector_button_click(self):
 
         self.toyTable.clear()
+        self.toyTable.setColumnCount(0)
+        self.toyTable.setRowCount(0)
+
+        # Копируем оригинальные списки дабы не попортить
+        self.toys_list = copy.deepcopy(self.ref_toys_list)
+        self.properties_list = copy.deepcopy(self.ref_properties_list)
+        self.questions_list = copy.deepcopy(self.ref_questions_list)
+        self.consequences_list = copy.deepcopy(self.ref_consequences_list)
 
         # Создаем пустой список ответов
         self.answers_list = list()
@@ -93,14 +105,17 @@ class MainWindow(QDialog):
                 # Необходимо удовлетворить каждую условную секвенцию из списка
                 for used_consequence in list_of_used_consequences:
 
-                    # Если это вопросный переход
-                    if used_consequence.is_goto:
-                        print("Sequence GOTO:%d" % used_consequence.next_question_id)
-                        question_selector.select_next_question(used_consequence.next_question_id)
-                    # Если это задача присваивания
-                    else:
-                        for then_prop in used_consequence.then_properties:
-                            print("Sequence SET: [%s:%s]" %(then_prop.name, then_prop.value))
+                    for then_prop in used_consequence.then_properties:
+                        print("Sequence SET: [%s:%s]" % (then_prop.name, then_prop.value))
+
+                        # Если это вопросный переход
+                        if then_prop.value == '?':
+                            next_question = self.find_question_by_property_name(then_prop.name)
+                            if next_question is not None:
+                                question_selector.select_next_question(next_question.id)
+
+                        # Если просто присваивание
+                        else:
                             finded = False
                             for ans in self.answers_list:
                                 if ans.name == then_prop.name:
@@ -125,19 +140,39 @@ class MainWindow(QDialog):
 
 
     def create_table(self):
-        self.toyTable.setColumnCount(3)
+        self.toyTable.setColumnCount(2)
         self.toyTable.setRowCount(len(self.answers_list))
-        header_list = ("Цена","Наименование", "Цвет")
-        self.toyTable.setHorizontalHeaderLabels(header_list)
+        self.toyTable.setHorizontalHeaderLabels(("Наименование","Характеристики"))
 
         row = 0
-        for answer in self.answers_list:
-            price_item = QTableWidgetItem(answer.get_property_values_in_string("Цена"))
-            name_item = QTableWidgetItem(answer.name)
-            self.toyTable.setItem(row, 0, price_item);
-            self.toyTable.setItem(row, 1, name_item);
+        for result_toy in self.answers_list:
+            """ @type: result_toy is ToyItem """
+            name_item = QTableWidgetItem(result_toy.name)
+
+            # Соберем все свойства по игрушке в строку
+            toy_info_str = str()
+            for prop_element in result_toy.properties_list:
+                toy_info_str += prop_element.name + ": "
+                for val in prop_element.values:
+                    toy_info_str += str(val + ",")
+                toy_info_str = toy_info_str[:-1] + "\n"
+
+            info_item = QTableWidgetItem(toy_info_str)
+            self.toyTable.setItem(row, 0, name_item);
+            self.toyTable.setItem(row, 1, info_item);
             row = row + 1
 
 
     def get_answer_list(self):
         return self.answers_list
+
+
+    def find_question_by_property_name(self, target_prop_name: str):
+        """ @rtype: QuestionItem"""
+
+        for question in self.questions_list:
+            if question.property_name == target_prop_name:
+                return question
+
+        return None
+

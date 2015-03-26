@@ -13,8 +13,6 @@
    <property>Тип игрушки</property>
   </question>
 
-
-
   <question id="3" priority="1">
    <text>Выберите жанр видеоигры:</text>
    <property>Жанр видеоигры</property>
@@ -25,28 +23,50 @@
    <property>Тип электронной игрушки</property>
   </question>
 
+  <question id="5" priority="3">
+   <text>Выберите тип электронной игрушки:</text>
+   <property>Тип электронной игрушки</property>
+  </question>
 
   <question id="10" priority="4">
    <text>Какого цвета игрушку вы бы хотели?</text>
    <property>Цвет</property>
   </question>
 
-  <question id="11" priority="4">
+  <question id="11" priority="5">
+   <text>Укажите материал:</text>
+   <property>Материал</property>
+  </question>
+
+  <question id="26" priority="4">
    <text>Выберите возрастную группу:</text>
    <property>Возрастная категория</property>
   </question>
 
-  <question id="12" priority="4">
+  <question id="12" priority="80">
    <text>Игрушка является радиоуправляемой?</text>
    <property>Радиоуправляемость</property>
   </question>
 
-  <question id="14" priority="4">
+  <question id="17" priority="7">
+   <text>Выберите кол-во элементов</text>
+   <property>Количество элементов</property>
+  </question>
+
+  <question id="18" priority="4">
    <text>Вы желает получить практичную игрушку?</text>
    <property>Практичность</property>
   </question>
 
-  
+  <question id="19" priority="4">
+   <text>Выберите тип конструктора:</text>
+   <property>Тип конструктора</property>
+  </question>
+
+  <question id="20" priority="5">
+   <text>Выберите подтип этой игрушки:</text>
+   <property>Тип реальной игрушки</property>
+  </question>
 
  </Questions>
 </Root>

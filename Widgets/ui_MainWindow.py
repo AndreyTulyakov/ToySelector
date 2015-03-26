@@ -7,12 +7,13 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QDialog
+from PyQt5.QtWidgets import QDialog, QHeaderView
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(492, 359)
+        MainWindow.resize(640, 480)
         self.gridLayout = QtWidgets.QGridLayout(MainWindow)
         self.gridLayout.setObjectName("gridLayout")
         self.verticalLayout = QtWidgets.QVBoxLayout()
@@ -23,8 +24,8 @@ class Ui_MainWindow(object):
 
         self.toyTable = QtWidgets.QTableWidget(MainWindow)
         self.toyTable.setObjectName("toyTable")
-
-
+        horizontHeader = self.toyTable.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.toyTable.verticalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.verticalLayout.addWidget(self.toyTable)
         self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 1)
 

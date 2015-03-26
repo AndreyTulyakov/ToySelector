@@ -19,10 +19,20 @@
   </property>
 
   <property caption="Тип электронной игрушки" argtype="multiwords">
+   <value text="Музыкальная"/>
+   <value text="Интерактивная"/>
    <value text="Роботы"/>
    <value text="Машинки"/>
-   <value text="Корабли"/>
    <value text="Военная техника"/>
+  </property> 
+
+  <property caption="Материал" argtype="multiwords">
+   <value text="Пластик"/>
+   <value text="Металл"/>
+   <value text="Текстиль"/>
+   <value text="Картон"/>
+   <value text="Резина"/>
+   <value text="Военная"/>
   </property> 
 
   <property caption="Жанр видеоигры" argtype="multiwords">
@@ -42,19 +52,41 @@
    <value min="0" max="100000"/>
   </property>
 
+  <property caption="Количество элементов" argtype="range">
+   <value min="0" max="100000"/>
+  </property>
+
   <property caption="Возрастная категория" argtype="multiwords">
    <value text="младшая"/>
    <value text="средняя"/>
    <value text="старшая"/>
   </property>
 
-  <property caption="Электронность" argtype="bool">	
+  <property caption="Тип реальной игрушки" argtype="word">
+   <value text="мягкая"/>
+   <value text="жизненная"/>
+   <value text="фигурки"/>
+   <value text="игрушечное оружие"/>
+   <value text="конструктор"/>
   </property> 
 
-  <property caption="Радиоуправляемость" argtype="bool">
+  <property caption="Пол ребенка" argtype="word">
+   <value text="мальчикам"/>
+   <value text="девочкам"/>
+   <value text="унисекс"/>
+  </property>
+
+  <property caption="Тип конструктора" argtype="word">
+   <value text="железный"/>
+   <value text="пластиковый"/>
+   <value text="деревянный"/>
+   <value text="комбинированный"/>
   </property>
 
   <property caption="Практичность" argtype="bool">
+  </property> 
+
+  <property caption="Радиоуправляемость" argtype="bool">
   </property> 
 
  </Properties>

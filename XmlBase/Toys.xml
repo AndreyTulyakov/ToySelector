@@ -5,23 +5,29 @@
   <toy id="1" name="Плюшевый медведь">
     <property caption="Цена" value="800"/>   
     <property caption="Тип игрушки" value="реальная"/>
+    <property caption="Тип реальной игрушки" value="мягкая"/>
   </toy>
 
   <toy id="2" name="Робот Мегатрон">
     <property caption="Цена" value="1500"/>   
     <property caption="Тип игрушки" value="электронная"/>
+    <property caption="Тип электронной игрушки" value="роботы"/>
+    <property caption="Цвет" value="синий"/>
+    <property caption="Радиоуправляемость" value="1"/>    
   </toy>
 
   <toy id="3" name="Набор детской посуды Апокалипсишка">
     <property caption="Цена" value="400"/>   
     <property caption="Тип игрушки" value="реальная"/>
+    <property caption="Тип реальной игрушки" value="жизненная"/>
     <property caption="Практичность" value="1"/>
   </toy>
 
   <toy id="4" name="Танк Т-34. Модель">
     <property caption="Цена" value="1800"/>   
     <property caption="Тип игрушки" value="электронная"/>
-    <property caption="Тип электронной игрушки" value="Военная техника"/>    
+    <property caption="Тип электронной игрушки" value="Военная техника"/>
+    <property caption="Материал" value="Картон"/>
   </toy>
 
   <toy id="5" name="Тетрис">
@@ -34,6 +40,44 @@
     <property caption="Цена" value="150"/>   
     <property caption="Тип игрушки" value="видеоигра"/>
     <property caption="Жанр видеоигры" value="детская"/>
+  </toy>
+
+  <toy id="7" name="Супер-пупер снайпер">
+    <property caption="Цена" value="150"/>   
+    <property caption="Тип игрушки" value="видеоигра"/>
+    <property caption="Жанр видеоигры" value="стрелялка симулятор"/>
+  </toy>
+
+  <toy id="8" name="Детский синтезатор Ё-Маха">
+    <property caption="Цена" value="5000"/>   
+    <property caption="Тип игрушки" value="электронная"/>
+    <property caption="Тип электронной игрушки" value="Музыкальная"/>
+    <property caption="Цвет" value="белый"/>
+    <property caption="Практичность" value="1"/> 
+  </toy>
+
+  <toy id="9" name="Скайнет-Болтун">
+    <property caption="Цена" value="400"/>   
+    <property caption="Тип игрушки" value="электронная"/>
+    <property caption="Тип электронной игрушки" value="Интерактивная"/>
+    <property caption="Цвет" value="красный"/>
+  </toy>
+
+  <toy id="10" name="Мягкая игрушка Альтруист">
+    <property caption="Цена" value="200"/>   
+    <property caption="Тип игрушки" value="реальная"/>
+    <property caption="Цвет" value="красный"/>
+    <property caption="Материал" value="Текстиль"/>
+    <property caption="Тип реальной игрушки" value="мягкая"/>
+  </toy>
+
+  <toy id="11" name="Детский конструктор -Терминаторик-">
+    <property caption="Цена" value="800"/>   
+    <property caption="Тип игрушки" value="реальная"/>
+    <property caption="Тип реальной игрушки" value="конструктор"/>
+    <property caption="Тип конструктора" value="железный"/>
+    <property caption="Практичность" value="1"/>
+    <property caption="Количество элементов" value="200"/>
   </toy>
 
  </Toys>
